@@ -56,7 +56,33 @@ public class Calculadora {
         return resp && pila.isEmpty();
     }
     
-    
+    public boolean jerarquiaOperandos(char operando, char tope) {
+        boolean resp = true;
+        switch (operando) {
+            case '+':
+                if (tope == '+') {
+                    resp = false;
+                }
+                break;
+            case '*':
+                if (tope != '^') {
+                    resp = false;
+                }
+                break;
+            case '/':
+                if (tope != '^') {
+                    resp = false;
+                }
+                break;
+            case '^':
+                resp = false;
+                break;
+            default:
+                resp = false;
+                break;
+        }
+        return resp;
+    }
         
     
     
